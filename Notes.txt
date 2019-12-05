@@ -1,0 +1,17 @@
+Steps
+=====
+1. Create blockmeshDict file
+2. Run blockMesh to create polymesh folder in /system/polymesh
+3. Decrease number of regions by 1 (i.e. 6 -> 5)
+4. Remove the group associated as the axis of symmetry
+5. Use splitMeshRegions -cellZones to create all the necessary run files.
+
+
+  Units in all the template files
+	[kg m s K mol A cd]
+	
+	
+
+
+
+6. In /constant/regionProperties, add all the solid and fluid sections.

@@ -1,0 +1,72 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/cra7/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+6
+(
+    front
+    {
+        type            wedge;
+        inGroups        1(wedge);
+        nFaces          2500;
+        startFace       4900;
+    }
+    back
+    {
+        type            wedge;
+        inGroups        1(wedge);
+        nFaces          2500;
+        startFace       7400;
+    }
+    wedgeright
+    {
+        type            patch;
+        nFaces          50;
+        startFace       9900;
+    }
+    cra7_to_water3
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          50;
+        startFace       9950;
+        sampleMode      nearestPatchFace;
+        sampleRegion    water3;
+        samplePatch     water3_to_cra7;
+    }
+    cra7_to_cra6
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          50;
+        startFace       10000;
+        sampleMode      nearestPatchFace;
+        sampleRegion    cra6;
+        samplePatch     cra6_to_cra7;
+    }
+    cra7_to_cs11
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          50;
+        startFace       10050;
+        sampleMode      nearestPatchFace;
+        sampleRegion    cs11;
+        samplePatch     cs11_to_cra7;
+    }
+)
+
+// ************************************************************************* //

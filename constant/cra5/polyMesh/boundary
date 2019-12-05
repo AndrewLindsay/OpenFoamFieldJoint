@@ -1,0 +1,76 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/cra5/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+6
+(
+    front
+    {
+        type            wedge;
+        inGroups        1(wedge);
+        nFaces          2500;
+        startFace       4900;
+    }
+    back
+    {
+        type            wedge;
+        inGroups        1(wedge);
+        nFaces          2500;
+        startFace       7400;
+    }
+    cra5_to_water1
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          50;
+        startFace       9900;
+        sampleMode      nearestPatchFace;
+        sampleRegion    water1;
+        samplePatch     water1_to_cra5;
+    }
+    cra5_to_cs9
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          50;
+        startFace       9950;
+        sampleMode      nearestPatchFace;
+        sampleRegion    cs9;
+        samplePatch     cs9_to_cra5;
+    }
+    cra5_to_cra4
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          50;
+        startFace       10000;
+        sampleMode      nearestPatchFace;
+        sampleRegion    cra4;
+        samplePatch     cra4_to_cra5;
+    }
+    cra5_to_cra6
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          50;
+        startFace       10050;
+        sampleMode      nearestPatchFace;
+        sampleRegion    cra6;
+        samplePatch     cra6_to_cra5;
+    }
+)
+
+// ************************************************************************* //

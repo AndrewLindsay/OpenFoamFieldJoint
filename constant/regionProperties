@@ -1,0 +1,32 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.1.x                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      regionProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+regions
+(
+    fluid       ( ) // When we have a fluid, it will be ( water0 water1 water2 water3 )
+    solid       ( water0 water1 water2 water3
+                  cra4   cra5   cra6   cra7
+                  cs8    cs9    cs10   cs11
+                  fbe12  fbe13  fbe14  fbe15
+                  adh16  adh17  adh18  adh19
+                  pps20  pps21  pps22  impp23
+                  ppf24  ppf25  impp26 impp27
+                  pps28  pps29  impp30 impp31
+                  impp32 impp33 impp34 )
+);
+
+// ************************************************************************* //
